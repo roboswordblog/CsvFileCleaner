@@ -47,6 +47,27 @@ public class Main {
             }
         });
 
+
+        JButton replaceNaButton = new JButton("Replace NaN");
+        replaceNaButton.setBounds(560, 9, 150, 42);
+        replaceNaButton.setBackground(new Color(255, 128, 0));
+        replaceNaButton.setForeground(Color.WHITE);
+        replaceNaButton.setFocusPainted(false);
+        replaceNaButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        replaceNaButton.setFont(new Font("Consolas", Font.BOLD, 14));
+        replaceNaButton.setOpaque(true);
+        replaceNaButton.setContentAreaFilled(true);
+
+        replaceNaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                replaceNaButton.setBackground(new Color(230, 115, 0));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                replaceNaButton.setBackground(new Color(255, 128, 0));
+            }
+        });
+
         JButton dropNaButton = new JButton("Drop NaN");
         dropNaButton.setBounds(410, 10, 150, 40);
         dropNaButton.setBackground(new Color(0, 123, 255));
@@ -95,6 +116,7 @@ public class Main {
 
         window.add(loadButton);
         window.add(dropNaButton);
+        window.add(replaceNaButton);
         window.add(saveButton);
         window.getContentPane().setBackground(new Color(30, 30, 30));
         window.setVisible(true);
