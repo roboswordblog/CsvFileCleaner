@@ -145,11 +145,10 @@ public class Main {
             }
         });
         replaceValButton.addActionListener(e -> {
-            replaceSwitch = !replaceSwitch;
 
-            if (replaceSwitch) {
-                replacePanel.setVisible(!replacePanel.isVisible());
-            }
+
+            replacePanel.setVisible(!replacePanel.isVisible());
+
 
             window.repaint();
             window.revalidate();
