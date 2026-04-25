@@ -40,7 +40,30 @@ public class Main {
             }
         });
 
+        JButton dropNaButton = new JButton("Drop NaN");
+        dropNaButton.setBounds(610, 10, 100, 40);
+        dropNaButton.setBackground(new Color(0, 123, 255));
+        dropNaButton.setForeground(Color.WHITE);
+        dropNaButton.setFocusPainted(false);
+        // dropNaButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        dropNaButton.setFont(new Font("Consolas", Font.BOLD, 14));
+        dropNaButton.setFocusPainted(false);
+        dropNaButton.setBorderPainted(false);
+        dropNaButton.setContentAreaFilled(false);
+        dropNaButton.setOpaque(true);
+
+        dropNaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dropNaButton.setBackground(new Color(0, 86, 179));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dropNaButton.setBackground(new Color(0, 123, 255));
+            }
+        });
+
         window.add(loadButton);
+        window.add(dropNaButton);
         window.getContentPane().setBackground(new Color(30, 30, 30));
         window.setVisible(true);
     }
