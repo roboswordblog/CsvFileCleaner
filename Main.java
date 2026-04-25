@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Main {
+    static dataHandling dataHandler = new dataHandling();
     public static void main(String[] args) {
         JFrame window = new JFrame("CSV FILE CLEANER");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
