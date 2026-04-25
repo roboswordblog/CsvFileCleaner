@@ -8,7 +8,7 @@ public class Main {
     public static JPanel createReplacePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        panel.setBounds(500, 50, 700, 100);
+        panel.setBounds(500, 52, 700, 100);
         panel.setBackground(new Color(30, 30, 30));
 
         JLabel replaceText = new JLabel("Replace");
@@ -17,7 +17,7 @@ public class Main {
         panel.add(replaceText);
 
         JTextField value1 = new JTextField();
-        value1.setBounds(60, 0, 50, 30);
+        value1.setBounds(60, 0, 30, 30);
         value1.setBackground(new Color(50, 50, 50));
         value1.setForeground(Color.WHITE);
         value1.setCaretColor(Color.WHITE);
@@ -31,11 +31,16 @@ public class Main {
         panel.add(withText);
 
         JTextField value2 = new JTextField();
-        value2.setBounds(170, 0, 50, 30);
+        value2.setBounds(170, 0, 30, 30);
+        value2.setBackground(new Color(50, 50, 50));
+        value2.setForeground(Color.WHITE);
+        value2.setCaretColor(Color.WHITE);
+        value2.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        value2.setFont(new Font("Consolas", Font.PLAIN, 14));
         panel.add(value2);
 
         JButton replaceButton = new JButton("Replace");
-        replaceButton.setBounds(230, 0, 75, 40);
+        replaceButton.setBounds(230, 0, 65, 30);
         replaceButton.setBackground(new Color(255, 128, 0));
         replaceButton.setForeground(Color.WHITE);
         replaceButton.setFocusPainted(false);
