@@ -41,7 +41,7 @@ public class Main {
         });
 
         JButton dropNaButton = new JButton("Drop NaN");
-        dropNaButton.setBounds(610, 10, 100, 40);
+        dropNaButton.setBounds(410, 10, 150, 40);
         dropNaButton.setBackground(new Color(0, 123, 255));
         dropNaButton.setForeground(Color.WHITE);
         dropNaButton.setFocusPainted(false);
