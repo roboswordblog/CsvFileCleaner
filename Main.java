@@ -88,9 +88,7 @@ public class Main {
         loadButton.setFont(new Font("Consolas", Font.BOLD, 14));
         loadButton.setOpaque(true);
         loadButton.setContentAreaFilled(true);
-        if (replaceSwitch){
-            drawReplaceVal(window);
-        }
+
         loadButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loadButton.setBackground(new Color(70, 70, 70));
@@ -143,7 +141,16 @@ public class Main {
                 dropNaButton.setBackground(new Color(0, 123, 255));
             }
         });
+        replaceValButton.addActionListener(e -> {
+            replaceSwitch = !replaceSwitch;
 
+            if (replaceSwitch) {
+                drawReplaceVal(window);
+            }
+
+            window.repaint();
+            window.revalidate();
+        });
 
         JButton saveButton = new JButton("Save");
         saveButton.setBounds(910, 10, 100, 40);
