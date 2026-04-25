@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class Main {
     static dataHandling dataHandler = new dataHandling();
-    static boolean replaceNaSwitch = false;
+    static boolean replaceSwitch = false;
 
     public static void drawReplaceVal(JFrame window){
         JLabel replaceText = new JLabel("Replace");
@@ -38,6 +38,27 @@ public class Main {
         value2.setFont(new Font("Consolas", Font.PLAIN, 14));
         window.add(value2);
 
+
+        JButton replaceValButton = new JButton("Replace");
+        replaceValButton.setBounds(690, 54, 75, 35);
+        replaceValButton.setBackground(new Color(255, 128, 0));
+        replaceValButton.setForeground(Color.WHITE);
+        replaceValButton.setFocusPainted(false);
+        replaceValButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        replaceValButton.setFont(new Font("Consolas", Font.BOLD, 14));
+        replaceValButton.setOpaque(true);
+        replaceValButton.setContentAreaFilled(true);
+
+        replaceValButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                replaceValButton.setBackground(new Color(230, 115, 0));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                replaceValButton.setBackground(new Color(255, 128, 0));
+            }
+        });
+        window.add(replaceValButton);
     }
 
     public static void main(String[] args) {
@@ -67,7 +88,9 @@ public class Main {
         loadButton.setFont(new Font("Consolas", Font.BOLD, 14));
         loadButton.setOpaque(true);
         loadButton.setContentAreaFilled(true);
-        drawReplaceVal(window);
+        if (replaceSwitch){
+            drawReplaceVal(window);
+        }
         loadButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loadButton.setBackground(new Color(70, 70, 70));
