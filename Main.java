@@ -65,7 +65,7 @@ public class Main {
 
 
         JButton saveButton = new JButton("Save");
-        saveButton.setBounds(710, 10, 100, 40);
+        saveButton.setBounds(910, 10, 100, 40);
         saveButton.setBackground(new Color(0, 153, 76));
         saveButton.setForeground(Color.WHITE);
         saveButton.setFocusPainted(false);
