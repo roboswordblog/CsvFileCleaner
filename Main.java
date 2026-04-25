@@ -5,60 +5,57 @@ public class Main {
     static dataHandling dataHandler = new dataHandling();
     static boolean replaceSwitch = false;
 
-    public static void drawReplaceVal(JFrame window){
-        JLabel replaceText = new JLabel("Replace");
-        replaceText.setBounds(510, 52, 300, 40);
-        replaceText.setForeground(Color.WHITE);
-        replaceText.setFont(new Font("Consolas", Font.PLAIN, 11));
-        window.add(replaceText);
+    public static JPanel createReplacePanel() {
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(500, 50, 700, 100);
+        panel.setBackground(new Color(30, 30, 30));
 
-        JTextField value1 = new JTextField("");
-        value1.setSize(40, 40);
-        value1.setLocation(560, 52);
+        JLabel replaceText = new JLabel("Replace");
+        replaceText.setBounds(0, 0, 60, 30);
+        replaceText.setForeground(Color.WHITE);
+        panel.add(replaceText);
+
+        JTextField value1 = new JTextField();
+        value1.setBounds(60, 0, 50, 30);
         value1.setBackground(new Color(50, 50, 50));
         value1.setForeground(Color.WHITE);
         value1.setCaretColor(Color.WHITE);
         value1.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
         value1.setFont(new Font("Consolas", Font.PLAIN, 14));
-        window.add(value1);
+        panel.add(value1);
 
         JLabel withText = new JLabel("With");
-        withText.setBounds(610, 52, 300, 40);
+        withText.setBounds(120, 0, 50, 30);
         withText.setForeground(Color.WHITE);
-        withText.setFont(new Font("Consolas", Font.PLAIN, 11));
-        window.add(withText);
+        panel.add(withText);
 
-        JTextField value2 = new JTextField("");
-        value2.setSize(40, 40);
-        value2.setLocation(640, 52);
-        value2.setBackground(new Color(50, 50, 50));
-        value2.setForeground(Color.WHITE);
-        value2.setCaretColor(Color.WHITE);
-        value2.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
-        value2.setFont(new Font("Consolas", Font.PLAIN, 14));
-        window.add(value2);
+        JTextField value2 = new JTextField();
+        value2.setBounds(170, 0, 50, 30);
+        panel.add(value2);
 
+        JButton replaceButton = new JButton("Replace");
+        replaceButton.setBounds(230, 0, 75, 40);
+        replaceButton.setBackground(new Color(255, 128, 0));
+        replaceButton.setForeground(Color.WHITE);
+        replaceButton.setFocusPainted(false);
+        replaceButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        replaceButton.setFont(new Font("Consolas", Font.PLAIN, 13));
+        replaceButton.setOpaque(true);
+        replaceButton.setContentAreaFilled(true);
 
-        JButton replaceValButton = new JButton("Replace");
-        replaceValButton.setBounds(690, 54, 75, 35);
-        replaceValButton.setBackground(new Color(255, 128, 0));
-        replaceValButton.setForeground(Color.WHITE);
-        replaceValButton.setFocusPainted(false);
-        replaceValButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
-        replaceValButton.setFont(new Font("Consolas", Font.BOLD, 14));
-        replaceValButton.setOpaque(true);
-        replaceValButton.setContentAreaFilled(true);
-
-        replaceValButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        replaceButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                replaceValButton.setBackground(new Color(230, 115, 0));
+                replaceButton.setBackground(new Color(230, 115, 0));
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                replaceValButton.setBackground(new Color(255, 128, 0));
+                replaceButton.setBackground(new Color(255, 128, 0));
             }
         });
-        window.add(replaceValButton);
+        panel.add(replaceButton);
+
+        return panel;
     }
 
     public static void main(String[] args) {
@@ -98,7 +95,8 @@ public class Main {
                 loadButton.setBackground(new Color(45, 45, 45));
             }
         });
-
+        JPanel replacePanel = createReplacePanel();
+        replacePanel.setVisible(false);
 
         JButton replaceValButton = new JButton("Replace Value");
         replaceValButton.setBounds(560, 9, 150, 42);
@@ -145,7 +143,7 @@ public class Main {
             replaceSwitch = !replaceSwitch;
 
             if (replaceSwitch) {
-                drawReplaceVal(window);
+                replacePanel.setVisible(!replacePanel.isVisible());
             }
 
             window.repaint();
@@ -174,7 +172,7 @@ public class Main {
         });
 
 
-
+        window.add(replacePanel);
         window.add(loadButton);
         window.add(dropNaButton);
         window.add(replaceValButton);
