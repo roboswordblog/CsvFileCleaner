@@ -5,8 +5,16 @@ public class Main {
     static dataHandling dataHandler = new dataHandling();
     static boolean replaceNaSwitch = false;
 
-    public static void drawReplaceNa(JFrame window){
-
+    public static void drawReplaceVal(JFrame window){
+        JTextField value1 = new JTextField("");
+        value1.setSize(40, 40);
+        value1.setLocation(560, 52);
+        value1.setBackground(new Color(50, 50, 50));
+        value1.setForeground(Color.WHITE);
+        value1.setCaretColor(Color.WHITE);
+        value1.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        value1.setFont(new Font("Consolas", Font.PLAIN, 14));
+        window.add(value1);
     }
 
     public static void main(String[] args) {
@@ -36,7 +44,7 @@ public class Main {
         loadButton.setFont(new Font("Consolas", Font.BOLD, 14));
         loadButton.setOpaque(true);
         loadButton.setContentAreaFilled(true);
-
+        drawReplaceVal(window);
         loadButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 loadButton.setBackground(new Color(70, 70, 70));
@@ -48,23 +56,23 @@ public class Main {
         });
 
 
-        JButton replaceNaButton = new JButton("Replace NaN");
-        replaceNaButton.setBounds(560, 9, 150, 42);
-        replaceNaButton.setBackground(new Color(255, 128, 0));
-        replaceNaButton.setForeground(Color.WHITE);
-        replaceNaButton.setFocusPainted(false);
-        replaceNaButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
-        replaceNaButton.setFont(new Font("Consolas", Font.BOLD, 14));
-        replaceNaButton.setOpaque(true);
-        replaceNaButton.setContentAreaFilled(true);
+        JButton replaceValButton = new JButton("Replace Value");
+        replaceValButton.setBounds(560, 9, 150, 42);
+        replaceValButton.setBackground(new Color(255, 128, 0));
+        replaceValButton.setForeground(Color.WHITE);
+        replaceValButton.setFocusPainted(false);
+        replaceValButton.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        replaceValButton.setFont(new Font("Consolas", Font.BOLD, 14));
+        replaceValButton.setOpaque(true);
+        replaceValButton.setContentAreaFilled(true);
 
-        replaceNaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        replaceValButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                replaceNaButton.setBackground(new Color(230, 115, 0));
+                replaceValButton.setBackground(new Color(230, 115, 0));
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                replaceNaButton.setBackground(new Color(255, 128, 0));
+                replaceValButton.setBackground(new Color(255, 128, 0));
             }
         });
 
@@ -116,7 +124,7 @@ public class Main {
 
         window.add(loadButton);
         window.add(dropNaButton);
-        window.add(replaceNaButton);
+        window.add(replaceValButton);
         window.add(saveButton);
         window.getContentPane().setBackground(new Color(30, 30, 30));
         window.setVisible(true);
