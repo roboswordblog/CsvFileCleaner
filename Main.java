@@ -21,6 +21,13 @@ public class Main {
         value1.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
         value1.setFont(new Font("Consolas", Font.PLAIN, 14));
         window.add(value1);
+
+        JLabel withText = new JLabel("With");
+        withText.setBounds(620, 52, 300, 40);
+        withText.setForeground(Color.WHITE);
+        withText.setFont(new Font("Consolas", Font.PLAIN, 11));
+        window.add(withText);
+
     }
 
     public static void main(String[] args) {
