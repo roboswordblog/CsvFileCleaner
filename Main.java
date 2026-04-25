@@ -6,6 +6,12 @@ public class Main {
     static boolean replaceNaSwitch = false;
 
     public static void drawReplaceVal(JFrame window){
+        JLabel replaceText = new JLabel("Replace");
+        replaceText.setBounds(510, 52, 300, 40);
+        replaceText.setForeground(Color.WHITE);
+        replaceText.setFont(new Font("Consolas", Font.PLAIN, 11));
+        window.add(replaceText);
+
         JTextField value1 = new JTextField("");
         value1.setSize(40, 40);
         value1.setLocation(560, 52);
