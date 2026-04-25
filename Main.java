@@ -3,6 +3,12 @@ import javax.swing.*;
 
 public class Main {
     static dataHandling dataHandler = new dataHandling();
+    static boolean replaceNaSwitch = false;
+
+    public static void drawReplaceNa(JFrame window){
+
+    }
+
     public static void main(String[] args) {
         JFrame window = new JFrame("CSV FILE CLEANER");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,6 +90,7 @@ public class Main {
                 saveButton.setBackground(new Color(0, 153, 76));
             }
         });
+
 
 
         window.add(loadButton);
