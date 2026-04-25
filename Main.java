@@ -30,6 +30,16 @@ public class Main {
         loadButton.setOpaque(true);
         loadButton.setContentAreaFilled(true);
 
+        loadButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loadButton.setBackground(new Color(70, 70, 70));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loadButton.setBackground(new Color(45, 45, 45));
+            }
+        });
+
         window.add(loadButton);
         window.getContentPane().setBackground(new Color(30, 30, 30));
         window.setVisible(true);
