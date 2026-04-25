@@ -63,8 +63,32 @@ public class Main {
             }
         });
 
+
+        JButton saveButton = new JButton("Save");
+        saveButton.setBounds(710, 10, 100, 40);
+        saveButton.setBackground(new Color(0, 153, 76));
+        saveButton.setForeground(Color.WHITE);
+        saveButton.setFocusPainted(false);
+        saveButton.setFont(new Font("Consolas", Font.BOLD, 14));
+        saveButton.setFocusPainted(false);
+        saveButton.setBorderPainted(false);
+        saveButton.setContentAreaFilled(false);
+        saveButton.setOpaque(true);
+
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                saveButton.setBackground(new Color(0, 180, 90));
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                saveButton.setBackground(new Color(0, 153, 76));
+            }
+        });
+
+
         window.add(loadButton);
         window.add(dropNaButton);
+        window.add(saveButton);
         window.getContentPane().setBackground(new Color(30, 30, 30));
         window.setVisible(true);
     }
