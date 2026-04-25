@@ -23,10 +23,20 @@ public class Main {
         window.add(value1);
 
         JLabel withText = new JLabel("With");
-        withText.setBounds(620, 52, 300, 40);
+        withText.setBounds(610, 52, 300, 40);
         withText.setForeground(Color.WHITE);
         withText.setFont(new Font("Consolas", Font.PLAIN, 11));
         window.add(withText);
+
+        JTextField value2 = new JTextField("");
+        value2.setSize(40, 40);
+        value2.setLocation(640, 52);
+        value2.setBackground(new Color(50, 50, 50));
+        value2.setForeground(Color.WHITE);
+        value2.setCaretColor(Color.WHITE);
+        value2.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
+        value2.setFont(new Font("Consolas", Font.PLAIN, 14));
+        window.add(value2);
 
     }
 
