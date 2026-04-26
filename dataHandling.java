@@ -8,9 +8,11 @@ public class dataHandling{
     HashMap<String, ArrayList<String>> fileData = new HashMap<>();
 
     HashMap<String,ArrayList<String>> load(String files) throws IOException {
+
+        fileData.clear();
         file = files;
         String content = Files.readString(Path.of(files));
-        String[] lines = content.split("\n");
+        String[] lines = content.split("\\r?\\n");
         for (int i=0;i<lines[0].split(",").length;i++){
             ArrayList<String> thingies = new ArrayList<>();
             for (int j=1;j<lines.length;j++){
