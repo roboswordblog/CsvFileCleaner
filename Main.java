@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.io.IOException;
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
 
 public class Main {
     static dataHandling dataHandler = new dataHandling();
@@ -163,9 +164,30 @@ public class Main {
             try {
                 load(fileName.getText());
 
-                JTable table = new JTable(fileData, fileTitle);
+                JTable table = new JTable(fileData, fileTitle){
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+                table.setRowHeight(25);
+                table.setFont(new Font("Consolas", Font.PLAIN, 14));
+                table.setForeground(Color.WHITE);
+                table.setBackground(new Color(40, 40, 40));
+                table.setGridColor(new Color(70, 70, 70));
+                table.setSelectionBackground(new Color(80, 80, 80));
+                table.setSelectionForeground(Color.WHITE);
+                table.setFocusable(false);
+                table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+                JTableHeader header = table.getTableHeader();
+                header.setFont(new Font("Consolas", Font.BOLD, 14));
+                header.setBackground(new Color(30, 30, 30));
+                header.setForeground(Color.WHITE);
+                header.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
                 JScrollPane scrollPane = new JScrollPane(table);
                 scrollPane.setBounds(50, 120, 1000, 500);
+                scrollPane.getViewport().setBackground(new Color(40, 40, 40));
+                scrollPane.setBorder(BorderFactory.createLineBorder(new Color(70, 70, 70)));
 
                 window.add(scrollPane);
                 window.revalidate();
