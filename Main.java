@@ -1,10 +1,12 @@
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.*;
 
 public class Main {
     static dataHandling dataHandler = new dataHandling();
     static boolean replaceSwitch = false;
-    static 
+    static String[][] fileData;
+    static String[] fileTitle;
     public static JPanel createReplacePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -62,7 +64,11 @@ public class Main {
 
         return panel;
     }
-
+    public static void load(String file) throws IOException {
+        String[][][] wow = dataHandler.load(file);
+        fileTitle = wow[0][0];
+        fileData = wow[1];
+    }
     public static void main(String[] args) {
         JFrame window = new JFrame("CSV FILE CLEANER");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -153,7 +159,13 @@ public class Main {
             window.repaint();
             window.revalidate();
         });
-
+        loadButton.addActionListener(e ->{
+            try {
+                load(fileName.toString());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
         JButton saveButton = new JButton("Save");
         saveButton.setBounds(910, 10, 100, 40);
         saveButton.setBackground(new Color(0, 153, 76));
