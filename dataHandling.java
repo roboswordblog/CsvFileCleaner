@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 public class dataHandling{
     String file;
-    HashMap<String, ArrayList<String>> fileData;
+    HashMap<String, ArrayList<String>> fileData = new HashMap<>();
 
     HashMap<String,ArrayList<String>> load(String files) throws IOException {
         file = files;
@@ -15,9 +15,13 @@ public class dataHandling{
             ArrayList<String> thingies = new ArrayList<>();
             for (int j=1;j<lines.length;j++){
                 String[] stuff = lines[j].split(",");
-                thingies.add(stuff[0]);
+                if (i < stuff.length) {
+                    thingies.add(stuff[i]);
+                } else {
+                    thingies.add("");
+                }
             }
-            fileData.put(lines[0].split(",")[0], thingies);
+            fileData.put(lines[0].split(",")[i], thingies);
         }
         return fileData;
     }
