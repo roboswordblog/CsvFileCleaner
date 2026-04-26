@@ -5,7 +5,7 @@ import javax.swing.table.JTableHeader;
 
 public class Main {
     static dataHandling dataHandler = new dataHandling();
-    static boolean replaceSwitch = false;
+
     static String[][] fileData;
     static String[] fileTitle;
     public static JPanel createReplacePanel() {
