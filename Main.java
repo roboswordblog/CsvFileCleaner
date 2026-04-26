@@ -4,7 +4,7 @@ import javax.swing.*;
 public class Main {
     static dataHandling dataHandler = new dataHandling();
     static boolean replaceSwitch = false;
-
+    static 
     public static JPanel createReplacePanel() {
         JPanel panel = new JPanel();
         panel.setLayout(null);
