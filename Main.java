@@ -159,11 +159,20 @@ public class Main {
             window.repaint();
             window.revalidate();
         });
-        loadButton.addActionListener(e ->{
+        loadButton.addActionListener(e -> {
             try {
-                load(fileName.toString());
+                load(fileName.getText());
+
+                JTable table = new JTable(fileData, fileTitle);
+                JScrollPane scrollPane = new JScrollPane(table);
+                scrollPane.setBounds(50, 120, 1000, 500);
+
+                window.add(scrollPane);
+                window.revalidate();
+                window.repaint();
+
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
         });
         JButton saveButton = new JButton("Save");
