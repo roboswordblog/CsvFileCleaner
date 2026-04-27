@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class dataHandling{
     String file;
     static ArrayList<String[]> fileData = new ArrayList<>();
-
+    static String[] title;
     String[][][] load(String files) throws IOException {
 
         fileData.clear();
@@ -16,6 +16,7 @@ public class dataHandling{
         if (content.isEmpty()) return new String[0][0][0];
         String[] lines = content.split("\\r?\\n");
         String[] titles = lines[0].split(",");
+        title = titles;
         // fileData.add(titles);
         for (int i=1;i<lines.length;i++){
             fileData.add(lines[i].split(","));
@@ -26,5 +27,23 @@ public class dataHandling{
     void dropNa(){
         fileData.removeIf(row -> Arrays.asList(row).contains("NaN"));
     }
+    void save() throws IOException {
+        StringBuilder totalData = new StringBuilder();
 
+        for (int i = 0; i < title.length; i++) {
+            totalData.append(title[i]);
+            if (i < title.length - 1) totalData.append(",");
+        }
+        totalData.append("\n");
+
+        for (String[] row : fileData) {
+            for (int i = 0; i < row.length; i++) {
+                totalData.append(row[i]);
+                if (i < row.length - 1) totalData.append(",");
+            }
+            totalData.append("\n");
+        }
+
+        Files.writeString(Path.of(file), totalData.toString());
+    }
 }

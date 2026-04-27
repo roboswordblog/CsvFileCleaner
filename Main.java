@@ -261,7 +261,7 @@ public class Main {
                 window.add(replaceValButton);
                 window.add(saveButton);
                 window.add(replacePanel);
-                window.add(scrollPane); // IMPORTANT: your latest table
+                window.add(scrollPane);
 
                 window.add(scrollPane);
                 window.revalidate();
@@ -269,6 +269,13 @@ public class Main {
 
             } catch (IOException ex) {
                 ex.printStackTrace();
+            }
+        });
+        saveButton.addActionListener(e->{
+            try {
+                dataHandler.save();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
         });
         window.add(replacePanel);
