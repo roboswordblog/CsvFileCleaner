@@ -61,6 +61,9 @@ public class Main {
                 replaceButton.setBackground(new Color(255, 128, 0));
             }
         });
+        replaceButton.addActionListener(e->{
+            dataHandler.replaceStuff(value1.getText(), value2.getText());
+        });
         panel.add(replaceButton);
 
         return panel;

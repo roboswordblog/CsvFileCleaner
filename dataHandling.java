@@ -47,10 +47,12 @@ public class dataHandling{
         Files.writeString(Path.of(file), totalData.toString());
     }
     void replaceStuff(String a, String b){
-        for (int i = 0; i < dataHandling.fileData.size(); i++) {
-            String[] row = dataHandling.fileData.get(i);
+        for (int i = 0; i < fileData.size(); i++) {
+            String[] row = fileData.get(i);
             for (int j = 0; j < row.length; j++) {
-
+                if (row[j].equals(a)) {
+                    fileData.get(i)[j] = b;
+                }
             }
         }
     }
