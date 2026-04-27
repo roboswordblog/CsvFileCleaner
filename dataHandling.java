@@ -22,5 +22,8 @@ public class dataHandling{
         return new String[][][]{new String[][]{titles},fileData.toArray(new String[0][])};
 
     }
+    void dropNa(){
+
+    }
 
 }
