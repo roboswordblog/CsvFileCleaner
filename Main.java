@@ -85,8 +85,6 @@ public class Main {
 
         JScrollPane newScroll = new JScrollPane(table);
         newScroll.setBounds(50, 120, 1000, 500);
-
-        // 🔴 remove old one (if exists)
         if (scrollPane != null) {
             window.remove(scrollPane);
         }
