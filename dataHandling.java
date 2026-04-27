@@ -1,11 +1,12 @@
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 public class dataHandling{
     String file;
-    ArrayList<String[]> fileData = new ArrayList<>();
+    static ArrayList<String[]> fileData = new ArrayList<>();
 
     String[][][] load(String files) throws IOException {
 
@@ -23,7 +24,7 @@ public class dataHandling{
 
     }
     void dropNa(){
-
+        fileData.removeIf(row -> Arrays.asList(row).contains("NaN"));
     }
 
 }
