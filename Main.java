@@ -8,7 +8,8 @@ public class Main {
 
     static String[][] fileData;
     static String[] fileTitle;
-    public static JPanel createReplacePanel() {
+    static JScrollPane scrollPane;
+    public static JPanel createReplacePanel(JFrame window) {
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setBounds(500, 52, 700, 100);
@@ -61,12 +62,41 @@ public class Main {
                 replaceButton.setBackground(new Color(255, 128, 0));
             }
         });
-        replaceButton.addActionListener(e->{
+        replaceButton.addActionListener(e -> {
             dataHandler.replaceStuff(value1.getText(), value2.getText());
+            Main.refreshTable(window);
         });
         panel.add(replaceButton);
 
         return panel;
+    }
+    public static void refreshTable(JFrame window) {
+
+        fileData = dataHandling.fileData.toArray(new String[0][]);
+
+        JTable table = new JTable(fileData, fileTitle) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        table.setRowHeight(25);
+
+        JScrollPane newScroll = new JScrollPane(table);
+        newScroll.setBounds(50, 120, 1000, 500);
+
+        // 🔴 remove old one (if exists)
+        if (scrollPane != null) {
+            window.remove(scrollPane);
+        }
+
+        scrollPane = newScroll;
+
+        window.add(scrollPane);
+
+        window.revalidate();
+        window.repaint();
     }
     public static void load(String file) throws IOException {
         String[][][] wow = dataHandler.load(file);
@@ -110,7 +140,7 @@ public class Main {
                 loadButton.setBackground(new Color(45, 45, 45));
             }
         });
-        JPanel replacePanel = createReplacePanel();
+        JPanel replacePanel = createReplacePanel(window);
         replacePanel.setVisible(false);
 
         JButton replaceValButton = new JButton("Replace Value");
